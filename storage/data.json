@@ -1,0 +1,451 @@
+[
+  [
+    {
+      "day": "Sunday&nbsp;1. Oct 2017",
+      "departure_airport": "13:10",
+      "arrival_airport": "Riga",
+      "connection": false,
+      "departure_time": "Oslo-Gardermoen",
+      "arrival_time": "15:40",
+      "prices": [
+        "240.45",
+        "98.84",
+        "80.84"
+      ]
+    }
+  ],
+  [
+    {
+      "day": "Monday&nbsp;2. Oct 2017",
+      "departure_airport": "11:20",
+      "arrival_airport": "Riga",
+      "connection": false,
+      "departure_time": "Oslo-Gardermoen",
+      "arrival_time": "13:50",
+      "prices": [
+        "240.45",
+        "52.09",
+        "34.09"
+      ]
+    }
+  ],
+  [
+    {
+      "day": "Tuesday&nbsp;3. Oct 2017",
+      "departure_airport": "11:20",
+      "arrival_airport": "Riga",
+      "connection": false,
+      "departure_time": "Oslo-Gardermoen",
+      "arrival_time": "13:50",
+      "prices": [
+        "240.45",
+        "70.33",
+        "52.33"
+      ]
+    }
+  ],
+  [
+    {
+      "day": "Wednesday&nbsp;4. Oct 2017",
+      "departure_airport": "11:20",
+      "arrival_airport": "Riga",
+      "connection": false,
+      "departure_time": "Oslo-Gardermoen",
+      "arrival_time": "13:50",
+      "prices": [
+        "240.45",
+        "70.33",
+        "52.33"
+      ]
+    }
+  ],
+  [
+    {
+      "day": "Thursday&nbsp;5. Oct 2017",
+      "departure_airport": "11:20",
+      "arrival_airport": "Riga",
+      "connection": false,
+      "departure_time": "Oslo-Gardermoen",
+      "arrival_time": "13:50",
+      "prices": [
+        "240.45",
+        "110.24",
+        "92.24"
+      ]
+    }
+  ],
+  [
+    {
+      "day": "Friday&nbsp;6. Oct 2017",
+      "departure_airport": "11:20",
+      "arrival_airport": "Riga",
+      "connection": false,
+      "departure_time": "Oslo-Gardermoen",
+      "arrival_time": "13:50",
+      "prices": [
+        "240.45",
+        "98.84",
+        "80.84"
+      ]
+    }
+  ],
+  [
+    {
+      "day": false,
+      "departure_airport": false,
+      "arrival_airport": false,
+      "connection": false,
+      "departure_time": false,
+      "arrival_time": false,
+      "prices": []
+    }
+  ],
+  [
+    {
+      "day": "Sunday&nbsp;8. Oct 2017",
+      "departure_airport": "13:10",
+      "arrival_airport": "Riga",
+      "connection": false,
+      "departure_time": "Oslo-Gardermoen",
+      "arrival_time": "15:40",
+      "prices": [
+        "240.45",
+        "63.49",
+        "45.49"
+      ]
+    }
+  ],
+  [
+    {
+      "day": "Monday&nbsp;9. Oct 2017",
+      "departure_airport": "11:20",
+      "arrival_airport": "Riga",
+      "connection": false,
+      "departure_time": "Oslo-Gardermoen",
+      "arrival_time": "13:50",
+      "prices": [
+        "240.45",
+        "63.49",
+        "45.49"
+      ]
+    }
+  ],
+  [
+    {
+      "day": "Tuesday&nbsp;10. Oct 2017",
+      "departure_airport": "11:20",
+      "arrival_airport": "Riga",
+      "connection": false,
+      "departure_time": "Oslo-Gardermoen",
+      "arrival_time": "13:50",
+      "prices": [
+        "240.45",
+        "63.49",
+        "45.49"
+      ]
+    }
+  ],
+  [
+    {
+      "day": "Wednesday&nbsp;11. Oct 2017",
+      "departure_airport": "11:20",
+      "arrival_airport": "Riga",
+      "connection": false,
+      "departure_time": "Oslo-Gardermoen",
+      "arrival_time": "13:50",
+      "prices": [
+        "240.45",
+        "63.49",
+        "45.49"
+      ]
+    }
+  ],
+  [
+    {
+      "day": "Thursday&nbsp;12. Oct 2017",
+      "departure_airport": "11:20",
+      "arrival_airport": "Riga",
+      "connection": false,
+      "departure_time": "Oslo-Gardermoen",
+      "arrival_time": "13:50",
+      "prices": [
+        "240.45",
+        "76.04",
+        "58.04"
+      ]
+    }
+  ],
+  [
+    {
+      "day": "Friday&nbsp;13. Oct 2017",
+      "departure_airport": "11:20",
+      "arrival_airport": "Riga",
+      "connection": false,
+      "departure_time": "Oslo-Gardermoen",
+      "arrival_time": "13:50",
+      "prices": [
+        "240.45",
+        "121.64",
+        "103.64"
+      ]
+    }
+  ],
+  [
+    {
+      "day": false,
+      "departure_airport": false,
+      "arrival_airport": false,
+      "connection": false,
+      "departure_time": false,
+      "arrival_time": false,
+      "prices": []
+    }
+  ],
+  [
+    {
+      "day": "Sunday&nbsp;15. Oct 2017",
+      "departure_airport": "13:10",
+      "arrival_airport": "Riga",
+      "connection": false,
+      "departure_time": "Oslo-Gardermoen",
+      "arrival_time": "15:40",
+      "prices": [
+        "240.45",
+        "52.09",
+        "34.09"
+      ]
+    }
+  ],
+  [
+    {
+      "day": "Monday&nbsp;16. Oct 2017",
+      "departure_airport": "11:20",
+      "arrival_airport": "Riga",
+      "connection": false,
+      "departure_time": "Oslo-Gardermoen",
+      "arrival_time": "13:50",
+      "prices": [
+        "240.45",
+        "52.09",
+        "34.09"
+      ]
+    }
+  ],
+  [
+    {
+      "day": "Tuesday&nbsp;17. Oct 2017",
+      "departure_airport": "11:20",
+      "arrival_airport": "Riga",
+      "connection": false,
+      "departure_time": "Oslo-Gardermoen",
+      "arrival_time": "13:50",
+      "prices": [
+        "240.45",
+        "52.09",
+        "34.09"
+      ]
+    }
+  ],
+  [
+    {
+      "day": "Wednesday&nbsp;18. Oct 2017",
+      "departure_airport": "11:20",
+      "arrival_airport": "Riga",
+      "connection": false,
+      "departure_time": "Oslo-Gardermoen",
+      "arrival_time": "13:50",
+      "prices": [
+        "240.45",
+        "52.09",
+        "34.09"
+      ]
+    }
+  ],
+  [
+    {
+      "day": "Thursday&nbsp;19. Oct 2017",
+      "departure_airport": "11:20",
+      "arrival_airport": "Riga",
+      "connection": false,
+      "departure_time": "Oslo-Gardermoen",
+      "arrival_time": "13:50",
+      "prices": [
+        "240.45",
+        "70.33",
+        "52.33"
+      ]
+    }
+  ],
+  [
+    {
+      "day": "Friday&nbsp;20. Oct 2017",
+      "departure_airport": "11:20",
+      "arrival_airport": "Riga",
+      "connection": false,
+      "departure_time": "Oslo-Gardermoen",
+      "arrival_time": "13:50",
+      "prices": [
+        "240.45",
+        "110.24",
+        "92.24"
+      ]
+    }
+  ],
+  [
+    {
+      "day": false,
+      "departure_airport": false,
+      "arrival_airport": false,
+      "connection": false,
+      "departure_time": false,
+      "arrival_time": false,
+      "prices": []
+    }
+  ],
+  [
+    {
+      "day": "Sunday&nbsp;22. Oct 2017",
+      "departure_airport": "13:10",
+      "arrival_airport": "Riga",
+      "connection": false,
+      "departure_time": "Oslo-Gardermoen",
+      "arrival_time": "15:40",
+      "prices": [
+        "240.45",
+        "87.44",
+        "69.44"
+      ]
+    }
+  ],
+  [
+    {
+      "day": "Monday&nbsp;23. Oct 2017",
+      "departure_airport": "11:20",
+      "arrival_airport": "Riga",
+      "connection": false,
+      "departure_time": "Oslo-Gardermoen",
+      "arrival_time": "13:50",
+      "prices": [
+        "240.45",
+        "52.09",
+        "34.09"
+      ]
+    }
+  ],
+  [
+    {
+      "day": "Tuesday&nbsp;24. Oct 2017",
+      "departure_airport": "11:20",
+      "arrival_airport": "Riga",
+      "connection": false,
+      "departure_time": "Oslo-Gardermoen",
+      "arrival_time": "13:50",
+      "prices": [
+        "240.45",
+        "52.09",
+        "34.09"
+      ]
+    }
+  ],
+  [
+    {
+      "day": "Wednesday&nbsp;25. Oct 2017",
+      "departure_airport": "11:20",
+      "arrival_airport": "Riga",
+      "connection": false,
+      "departure_time": "Oslo-Gardermoen",
+      "arrival_time": "13:50",
+      "prices": [
+        "240.45",
+        "52.09",
+        "34.09"
+      ]
+    }
+  ],
+  [
+    {
+      "day": "Thursday&nbsp;26. Oct 2017",
+      "departure_airport": "11:20",
+      "arrival_airport": "Riga",
+      "connection": false,
+      "departure_time": "Oslo-Gardermoen",
+      "arrival_time": "13:50",
+      "prices": [
+        "240.45",
+        "70.33",
+        "52.33"
+      ]
+    }
+  ],
+  [
+    {
+      "day": "Friday&nbsp;27. Oct 2017",
+      "departure_airport": "11:20",
+      "arrival_airport": "Riga",
+      "connection": false,
+      "departure_time": "Oslo-Gardermoen",
+      "arrival_time": "13:50",
+      "prices": [
+        "240.45",
+        "110.24",
+        "92.24"
+      ]
+    }
+  ],
+  [
+    {
+      "day": false,
+      "departure_airport": false,
+      "arrival_airport": false,
+      "connection": false,
+      "departure_time": false,
+      "arrival_time": false,
+      "prices": []
+    }
+  ],
+  [
+    {
+      "day": "Sunday&nbsp;29. Oct 2017",
+      "departure_airport": "11:40",
+      "arrival_airport": "Riga",
+      "connection": false,
+      "departure_time": "Oslo-Gardermoen",
+      "arrival_time": "14:10",
+      "prices": [
+        "240.45",
+        "63.49",
+        "45.49"
+      ]
+    }
+  ],
+  [
+    {
+      "day": "Monday&nbsp;30. Oct 2017",
+      "departure_airport": "11:20",
+      "arrival_airport": "Riga",
+      "connection": false,
+      "departure_time": "Oslo-Gardermoen",
+      "arrival_time": "13:50",
+      "prices": [
+        "240.45",
+        "52.09",
+        "34.09"
+      ]
+    }
+  ],
+  [
+    {
+      "day": "Tuesday&nbsp;31. Oct 2017",
+      "departure_airport": "11:20",
+      "arrival_airport": "Riga",
+      "connection": false,
+      "departure_time": "Oslo-Gardermoen",
+      "arrival_time": "13:50",
+      "prices": [
+        "240.45",
+        "52.09",
+        "34.09"
+      ]
+    }
+  ]
+]
