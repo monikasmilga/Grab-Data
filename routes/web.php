@@ -18,3 +18,7 @@ Route::get('/', function () {
 Route::get('/grabbed', ['as' => 'app.data.index', 'uses' => 'GDDataGrabbingController@index']);
 
 Route::get('/result', ['as' => 'app.data.onePageData', 'uses' => 'GDDataGrabbingController@grabAllData']);
+
+Route::get('/resultmore', ['as' => 'app.data.grabMoreData', 'uses' => 'GDDataGrabbingController@grabMoreData']);
+
+

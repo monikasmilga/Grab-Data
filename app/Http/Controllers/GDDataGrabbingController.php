@@ -66,10 +66,10 @@ class GDDataGrabbingController extends Controller
 //        dd($result);
 
         foreach ($result as &$day) {
-            foreach ($day as  &$flight) {
+            foreach ($day as &$flight) {
 
                 $priceArray = [];
-                
+
                 foreach ($flight['prices'] as $price) {
                     array_push($priceArray, $price);
                 };
@@ -92,12 +92,107 @@ class GDDataGrabbingController extends Controller
     }
 
 
+    public function grabMoreData()
+    {
+
+        // TAKES DATA FROM CALENDAR
+
+        $urlCalendar = 'https://www.norwegian.com/uk/booking/flight-tickets/farecalendar/?D_City=OSL&A_City=RIX&TripType=1&D_Day=01&D_Month=201710&R_Day=01&R_Month=201710&IncludeTransit=false&AgreementCodeFK=-1&CurrencyCode=EUR';
+
+        $cc = new Copycat;
+        $cc->setCURL(array(
+            CURLOPT_RETURNTRANSFER => 1,
+            CURLOPT_CONNECTTIMEOUT => 5,
+            CURLOPT_HTTPHEADER, "Content-Type: text/html; charset=iso-8859-1",
+            CURLOPT_USERAGENT => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.17 (KHTML, like Gecko) Chrome/24.0.1312.57 Safari/537.17',
+        ));
+
+        $cc->matchAll([
+            'data' => '!<div class="fareCalPrice">(.*?)<\/div>!',
+        ])->URLs($urlCalendar);
+        $result = $cc->get();
+
+        $i = 1;
+        foreach ($result as &$array) {
+            foreach ($array as &$item) {
+                foreach ($item as $key => $price) {
+
+                    $item[$key] = [
+                        'day' => $i,
+                        'price' => (float)$price,
+                        'url_fare' => intval(round($price))
+                    ];
+                    $i++;
+                }
+            }
+        }
+//        dd($result);
+
+        // CHECKS EACH DAY (THAT HAS FLIGHTS) FOR TAXES & OTHER REQUIRED FLIGHT DETAILS
+
+        $cc = new Copycat;
+        $cc->setCURL(array(
+            CURLOPT_RETURNTRANSFER => 1,
+            CURLOPT_CONNECTTIMEOUT => 5,
+            CURLOPT_HTTPHEADER, "Content-Type: text/html; charset=iso-8859-1",
+            CURLOPT_USERAGENT => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.17 (KHTML, like Gecko) Chrome/24.0.1312.57 Safari/537.17',
+        ));
+
+
+        foreach ($item as $dayData) {
+
+
+            if ($dayData['url_fare'] !== 0) {
+
+                $urlDay = 'https://www.norwegian.com/uk/booking/flight-tickets/select-flight/?D_City=OSL&A_City=RIX&TripType=1&D_SelectedDay=' . $dayData['day'] . '&D_Day=' . $dayData['day'] . '&D_Month=201710&R_Day=' . $dayData['day'] . '&R_Month=201710&dFare=' . $dayData['url_fare'] . '&IncludeTransit=false&AgreementCodeFK=-1&CurrencyCode=EUR';
+
+                $cc->match([
+                    'taxes' => '/class="rightcell emphasize" align="right" valign="bottom">(.*?)</ms',
+                    'day' => '/class="layoutcell" align="right">&nbsp;(.*?)</ms',
+                    'departure_time' => '/class="depdest" title="Flight ......"><div class="content emphasize">(.*?)</ms',
+                    'arrival_airport' => '/class="arrdest"><div class="content">(.*?)</ms',
+                    'departure_airport' => '/class="depdest" title="Flight ......"><div class="content">(.*?)</ms',
+                    'arrival_time' => '/class="arrdest"><div class="content emphasize">(.*?)</ms'])
+                    ->URLs($urlDay);
+
+                $item = $cc->get();
+                $item[0]['day'] = str_replace('&nbsp;', ' ', $item[0]['day']);
+                $item[0]['taxes'] = (float)(str_replace('€', '', $item[0]['taxes']));
+                $item[0]['price'] = $dayData['price'];
+//                dd($item[0]);
+
+//                dd($urlDay);
+                $fullData[] = $item;
+//                dd($fullData[0]);
+            }
+//                dd($fullData);
+        }
+
+
+//        $cc->match([
+//                'taxes' => '/class="rightcell emphasize" align="right" valign="bottom">€(.*?)</ms',
+//                'day' => '/class="layoutcell" align="right">&nbsp;(.*?)</ms',
+//                'departure_airport' => '/class="depdest" title="Flight ......"><div class="content emphasize">(.*?)</ms',
+//                'arrival_airport' => '/class="arrdest"><div class="content">(.*?)</ms',
+//                'departure_time' => '/class="depdest" title="Flight ......"><div class="content">(.*?)</ms',
+//                'arrival_time' => '/class="arrdest"><div class="content emphasize">(.*?)</ms'])
+//            ->URLs($urlDay);
+
+
+        dd($fullData);
+
+        dd('stop');
+        return view('result', $result);
+    }
+
+
     /**
      * Show the form for creating a new resource.
      * GET /datagrabbing/create
      *
      * @return Response
      */
+
     public function create()
     {
         //
