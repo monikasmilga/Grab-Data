@@ -15,10 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/grabbed', ['as' => 'app.data.index', 'uses' => 'GDDataGrabbingController@index']);
-
-Route::get('/result', ['as' => 'app.data.onePageData', 'uses' => 'GDDataGrabbingController@grabAllData']);
-
-Route::get('/resultmore', ['as' => 'app.data.grabMoreData', 'uses' => 'GDDataGrabbingController@grabMoreData']);
+Route::get('/norwegian-result', ['as' => 'app.data.grabData', 'uses' => 'GDDataGrabbingController@grabData']);
 
 

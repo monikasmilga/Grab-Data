@@ -1,31 +1,12 @@
 <?php namespace App\Http\Controllers;
 
+use Carbon\Carbon;
+use DateTimeZone;
 use Gidlov\Copycat\Copycat;
 use Illuminate\Routing\Controller;
 
 class GDDataGrabbingController extends Controller
 {
-
-    /**
-     * Display a listing of the resource.
-     * GET /datagrabbing
-     *
-     * @return Response
-     */
-    public function index()
-    {
-
-        $config['grabbed'] = file_get_contents('https://www.norwegian.com/uk/booking/flight-tickets/select-flight/?D_City=OSL&A_City=RIX&TripType=1&D_Day=01&D_Month=201710&D_SelectedDay=01&R_Day=01&R_Month=201710&R_SelectedDay=01&IncludeTransit=false&AgreementCodeFK=-1&CurrencyCode=EUR&rnd=65098');
-
-        return view('grabbed', $config);
-    }
-
-
-    /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     *
-     * Collects required information from one day, when exact URL is given
-     */
 
     public function grabAllData()
     {
@@ -92,10 +73,12 @@ class GDDataGrabbingController extends Controller
     }
 
 
-    public function grabMoreData()
+    public function grabData()
     {
-
         // TAKES DATA FROM CALENDAR
+
+        $startTime = time();
+//        dd($startTime);
 
         $urlCalendar = 'https://www.norwegian.com/uk/booking/flight-tickets/farecalendar/?D_City=OSL&A_City=RIX&TripType=1&D_Day=01&D_Month=201710&R_Day=01&R_Month=201710&IncludeTransit=false&AgreementCodeFK=-1&CurrencyCode=EUR';
 
@@ -126,9 +109,8 @@ class GDDataGrabbingController extends Controller
                 }
             }
         }
-//        dd($result);
 
-        // CHECKS EACH DAY (THAT HAS FLIGHTS) FOR TAXES & OTHER REQUIRED FLIGHT DETAILS
+        // CHECKS EACH DAY (THAT HAS FLIGHTS) FOR TAXES & OTHER REQUIRED FLIGHT DETAILS, COUNTS DURATION
 
         $cc = new Copycat;
         $cc->setCURL(array(
@@ -159,102 +141,19 @@ class GDDataGrabbingController extends Controller
                 $item[0]['day'] = str_replace('&nbsp;', ' ', $item[0]['day']);
                 $item[0]['taxes'] = (float)(str_replace('€', '', $item[0]['taxes']));
                 $item[0]['price'] = $dayData['price'];
-//                dd($item[0]);
+                $item[0]['connection airport'] = 'Task: "Data should only be collected for direct flights"';
 
-//                dd($urlDay);
                 $fullData[] = $item;
-//                dd($fullData[0]);
             }
-//                dd($fullData);
         }
 
 
-//        $cc->match([
-//                'taxes' => '/class="rightcell emphasize" align="right" valign="bottom">€(.*?)</ms',
-//                'day' => '/class="layoutcell" align="right">&nbsp;(.*?)</ms',
-//                'departure_airport' => '/class="depdest" title="Flight ......"><div class="content emphasize">(.*?)</ms',
-//                'arrival_airport' => '/class="arrdest"><div class="content">(.*?)</ms',
-//                'departure_time' => '/class="depdest" title="Flight ......"><div class="content">(.*?)</ms',
-//                'arrival_time' => '/class="arrdest"><div class="content emphasize">(.*?)</ms'])
-//            ->URLs($urlDay);
-
-
+        $fullData['duration'] = (time()) - $startTime;
         dd($fullData);
 
-        dd('stop');
-        return view('result', $result);
+        return view('result', $fullData);
+
+        // takes 28 requests to grab exact veriefied data
+        // if we say we know the schedule pattern, we could do it with 3 queries: 1 for all calendar with lowest prices, 1 for taxes and departure/arrival times on sundays, 1 for departure/arrival times on other days
     }
-
-
-    /**
-     * Show the form for creating a new resource.
-     * GET /datagrabbing/create
-     *
-     * @return Response
-     */
-
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     * POST /datagrabbing
-     *
-     * @return Response
-     */
-    public function store()
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     * GET /datagrabbing/{id}
-     *
-     * @param  int $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     * GET /datagrabbing/{id}/edit
-     *
-     * @param  int $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     * PUT /datagrabbing/{id}
-     *
-     * @param  int $id
-     * @return Response
-     */
-    public function update($id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     * DELETE /datagrabbing/{id}
-     *
-     * @param  int $id
-     * @return Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
-
 }
